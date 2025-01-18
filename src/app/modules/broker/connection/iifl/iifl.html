@@ -1,0 +1,54 @@
+<div class="flex gap-4 w-full">
+  <div class="flex flex-col gap-8 border-[1px] rounded-md p-8 w-7/12">
+    <h4>Broker Configuration</h4>
+
+    <div style="--p-message-text-font-weight: 400">
+      <p-message severity="warn"
+        >Remember, the account password is only used for verification purposes
+        and is not stored in the backend, hence you will be prompted for
+        password again once the password token validity expires.</p-message
+      >
+    </div>
+
+    <form class="flex flex-col gap-4" [formGroup]="brokerConfig">
+      <p-inputgroup>
+        <p-inputgroup-addon> Client Code </p-inputgroup-addon>
+        <input pInputText formControlName="clientCode" />
+      </p-inputgroup>
+      <p-inputgroup>
+        <p-inputgroup-addon> Password </p-inputgroup-addon>
+        <input pInputText formControlName="password" />
+      </p-inputgroup>
+      <p-inputgroup>
+        <p-inputgroup-addon> My2Pin </p-inputgroup-addon>
+        <input pInputText formControlName="my2pin" />
+      </p-inputgroup>
+
+      <div class="flex flex-row-reverse gap-4">
+        <div class="w-1/6">
+          <p-button
+            fluid
+            label="Save & Connect"
+            [disabled]="brokerConfig.invalid"
+            (click)="save()"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="flex flex-col gap-8 border-[1px] rounded-md p-8 w-5/12">
+    <h4>Step-by-Step Guide</h4>
+
+    <div class="instructions font-poppins">
+      <ol class="flex flex-col gap-2 pl-4 list-decimal">
+        <li>Enter your unique client code in the designated field.</li>
+        <li>Type in your account password.</li>
+        <li>
+          Enter your My2PIN, which is your date of birth. Ensure you use the
+          correct format as specified (e.g., YYYYMMDD).
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>

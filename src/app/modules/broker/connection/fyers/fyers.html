@@ -1,0 +1,72 @@
+<div class="flex gap-4 w-full">
+  <div class="flex flex-col gap-8 border-[1px] rounded-md p-8 w-7/12">
+    <h4>Broker Configuration</h4>
+
+    <form class="flex flex-col gap-4" [formGroup]="brokerConfig">
+      <p-inputgroup>
+        <p-inputgroup-addon> App ID </p-inputgroup-addon>
+        <input pInputText formControlName="appId" />
+      </p-inputgroup>
+      <p-inputgroup>
+        <p-inputgroup-addon> Secret ID </p-inputgroup-addon>
+        <input pInputText formControlName="secretId" />
+      </p-inputgroup>
+
+      <div class="flex flex-row-reverse gap-4">
+        <div class="w-1/6">
+          <p-button
+            fluid
+            label="Save & Connect"
+            [disabled]="brokerConfig.invalid"
+            (click)="save()"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="flex flex-col gap-8 border-[1px] rounded-md p-8 w-5/12">
+    <h4>Step-by-Step Guide</h4>
+
+    <div class="instructions font-poppins">
+      <h5>Steps to Obtain App ID and Secret ID for Fyers</h5>
+      <ol class="flex flex-col gap-2 pl-4 list-decimal">
+        <li>
+          Visit the
+          <a href="https://myapi.fyers.in/dashboard" target="_blank"
+            >Fyers Trading Portal</a
+          >.
+        </li>
+        <li>
+          Log in using your phone number, enter the TOTP, and your 4-digit PIN.
+        </li>
+        <li>
+          Click on the "Create App" button. Provide an app name, paste the
+          redirect URL as specified in the instructions, add a description, and
+          delete the webhook. Grant all app permissions and check the box to
+          accept the API Usage Terms and Conditions. Finally, click on "Create
+          App."
+        </li>
+        <li>
+          Scroll down to find the newly created app. Copy the App ID and Secret
+          ID and paste them into your platform.
+        </li>
+      </ol>
+    </div>
+
+    <!-- Embedded YouTube Video -->
+    <div class="video-container">
+      <h5>Watch the Video Tutorial</h5>
+      <iframe
+        class="rounded-md border-[2px] border-gray-700"
+        width="100%"
+        height="315px"
+        src="https://www.youtube.com/embed/blhTiePBIg0"
+        title="YouTube video tutorial"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+  </div>
+</div>

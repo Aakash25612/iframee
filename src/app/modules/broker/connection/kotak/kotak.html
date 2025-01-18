@@ -1,0 +1,147 @@
+<div class="flex gap-4 w-full">
+  <div class="flex flex-col gap-8 border-[1px] rounded-md p-8 w-7/12">
+    <h4>Broker Configuration</h4>
+
+    <div style="--p-message-text-font-weight: 400">
+      <p-message severity="warn"
+        >We will not store your login credentials, you will need to enter it
+        while accepting trades</p-message
+      >
+    </div>
+
+    <form class="flex flex-col gap-4" [formGroup]="brokerConfig">
+      <p-selectbutton
+        formControlName="loginMode"
+        [options]="[{ label: 'Mobile Number', value: 'mobile' },{ label: 'Permanent Account Number (PAN)', value: 'pan' }]"
+        optionLabel="label"
+        optionValue="value"
+        aria-labelledby="basic"
+        size="large"
+      />
+
+      <p-inputgroup>
+        <p-inputgroup-addon> Consumer Key </p-inputgroup-addon>
+        <input pInputText formControlName="consumerKey" />
+      </p-inputgroup>
+      <p-inputgroup>
+        <p-inputgroup-addon> Consumer Secret </p-inputgroup-addon>
+        <input pInputText formControlName="consumerSecret" />
+      </p-inputgroup>
+
+      @if (getLoginMode() === 'mobile') {
+      <p-inputgroup>
+        <p-inputgroup-addon> Mobile Number </p-inputgroup-addon>
+        <input pInputText formControlName="mobile" />
+      </p-inputgroup>
+      } @else {
+      <p-inputgroup>
+        <p-inputgroup-addon>
+          Permanent Account Number (PAN)
+        </p-inputgroup-addon>
+        <input pInputText formControlName="pan" />
+      </p-inputgroup>
+      }
+
+      <p-inputgroup>
+        <p-inputgroup-addon> Password </p-inputgroup-addon>
+        <input pInputText formControlName="password" />
+      </p-inputgroup>
+
+      <div class="flex flex-row-reverse gap-4">
+        <div class="w-1/6">
+          <p-button
+            fluid
+            label="Save & Connect"
+            [disabled]="brokerConfig.invalid"
+            (click)="save()"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="flex flex-col gap-8 border-[1px] rounded-md p-8 w-5/12">
+    <h4>Step-by-Step Guide</h4>
+
+    <div class="instructions font-poppins">
+      <h5>Steps to Obtain the Consumer Key and Consumer Secret for Kotak:</h5>
+      <ol class="flex flex-col gap-2 pl-4 list-decimal">
+        <li>
+          Obtain Neo TradeAPI Credentials (If you don’t have your client ID and
+          password):
+          <ul class="flex flex-col gap-2 pl-4 mt-3 list-disc">
+            <li>
+              Visit the
+              <a
+                href="https://kotaksecurities.com/trading-tools/kotak-neo-trading-platform/trading-api/"
+                target="_blank"
+                >Kotak Neo Trading API platform</a
+              >
+            </li>
+            <li>
+              Find your Client ID (unique client code) in your Kotak Securities
+              Neo account under account details.
+            </li>
+            <li>
+              Enter your Client ID and click on "Register for Neo TradeAPI".
+            </li>
+            <li>
+              Fill in your Client ID, email, and contact number, then click
+              "Submit".
+            </li>
+            <div class="mt-5" style="--p-message-text-font-weight: 400">
+              <p-message severity="info"
+                >You will receive your Client ID and password via email within
+                30 minutes.</p-message
+              >
+            </div>
+          </ul>
+        </li>
+        <li>
+          Log In to the Kotak API Portal:
+          <ul class="flex flex-col gap-2 pl-4 mt-3 list-disc">
+            <li>
+              Visit the
+              <a
+                href="https://napi.kotaksecurities.com/devportal/apis"
+                target="_blank"
+                >Kotak API portal</a
+              >
+            </li>
+            <li>Log in using your Client ID and password.</li>
+          </ul>
+        </li>
+        <li>
+          Navigate to the "Applications" section, click on "Add New
+          Application," and save the details.
+        </li>
+        <li>
+          In the "Subscriptions" tab, subscribe to all the available APIs.
+        </li>
+        <li>
+          Go to the "Production Keys" section and click "Generate Keys" to
+          obtain your API Key and Secret Key.
+        </li>
+        <li>
+          Copy your Consumer Key and Consumer Secret, and input them in the
+          required fields on the screen.
+        </li>
+      </ol>
+    </div>
+
+    <!-- Embedded YouTube Video -->
+    <div class="video-container">
+      <h5>Watch the Video Tutorial</h5>
+      <iframe
+        class="rounded-md border-[2px] border-gray-700"
+        width="100%"
+        height="315px"
+        src="https://www.youtube.com/embed/JXwnwaxM88k"
+        title="YouTube video tutorial"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+  </div>
+</div>

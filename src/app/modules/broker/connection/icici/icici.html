@@ -1,0 +1,72 @@
+<div class="flex gap-4 w-full">
+  <div class="flex flex-col gap-8 border-[1px] rounded-md p-8 w-7/12">
+    <h4>Broker Configuration</h4>
+
+    <form class="flex flex-col gap-4" [formGroup]="brokerConfig">
+      <p-inputgroup>
+        <p-inputgroup-addon> API Key </p-inputgroup-addon>
+        <input pInputText formControlName="apiKey" />
+      </p-inputgroup>
+      <p-inputgroup>
+        <p-inputgroup-addon> Secret Key </p-inputgroup-addon>
+        <input pInputText formControlName="secretKey" />
+      </p-inputgroup>
+
+      <div class="flex flex-row-reverse gap-4">
+        <div class="w-1/6">
+          <p-button
+            fluid
+            label="Save & Connect"
+            [disabled]="brokerConfig.invalid"
+            (click)="save()"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="flex flex-col gap-8 border-[1px] rounded-md p-8 w-5/12">
+    <h4>Step-by-Step Guide</h4>
+
+    <div class="instructions font-poppins">
+      <h5>Steps to Obtain API Key and Secret Key for ICICI Direct</h5>
+      <ol class="flex flex-col gap-2 pl-4 list-decimal">
+        <li>
+          Visit the
+          <a href="https://api.icicidirect.com/apiuser/home" target="_blank"
+            >ICICI Direct API Portal</a
+          >
+          and log in using your username and password.
+        </li>
+        <li>Verify your identity with the OTP and submit.</li>
+        <li>Accept the <b>Risk Disclosure</b>.</li>
+        <li>
+          Click on the "Register an App" tab, then fill in the "App Name" field
+          with "AlphaQuarkTest" or a name of your choice. Enter the "Redirect
+          URL" as "https://ccxt.alphaquark.in/icici/auth-callback/test" and
+          click "Submit". Please ensure that "redirect URL" entered correctly as
+          mentioned above.
+        </li>
+        <li>
+          Navigate to the "View Apps" tab and copy your API and Secret Key-
+          enter these details in the screen.
+        </li>
+      </ol>
+    </div>
+
+    <!-- Embedded YouTube Video -->
+    <div class="video-container">
+      <h5>Watch the Video Tutorial</h5>
+      <iframe
+        class="rounded-md border-[2px] border-gray-700"
+        width="100%"
+        height="315px"
+        src="https://www.youtube.com/embed/XFLjL8hOctI"
+        title="YouTube video tutorial"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+  </div>
+</div>

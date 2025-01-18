@@ -1,0 +1,69 @@
+<div class="flex gap-4 w-full">
+  <div class="flex flex-col gap-8 border-[1px] rounded-md p-8 w-7/12">
+    <h4>Broker Configuration</h4>
+
+    <form class="flex flex-col gap-4" [formGroup]="brokerConfig">
+      <p-inputgroup>
+        <p-inputgroup-addon> API Key </p-inputgroup-addon>
+        <input pInputText formControlName="apiKey" />
+      </p-inputgroup>
+      <p-inputgroup>
+        <p-inputgroup-addon> API Secret </p-inputgroup-addon>
+        <input pInputText formControlName="apiSecret" />
+      </p-inputgroup>
+
+      <div class="flex flex-row-reverse gap-4">
+        <div class="w-1/6">
+          <p-button
+            fluid
+            label="Save & Connect"
+            [disabled]="brokerConfig.invalid"
+            (click)="save()"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="flex flex-col gap-8 border-[1px] rounded-md p-8 w-5/12">
+    <h4>Step-by-Step Guide</h4>
+
+    <div class="instructions font-poppins">
+      <h5>Steps to Obtain API Key and API Secret for HDFC Securities</h5>
+      <ol class="flex flex-col gap-2 pl-4 list-decimal">
+        <li>
+          Visit the
+          <a href="https://developer.hdfcsec.com" target="_blank"
+            >HDFC Securities Developer Portal</a
+          >.
+        </li>
+        <li>Log in with your ID, password, and OTP.</li>
+        <li>Accept the <b>Risk Disclosure</b>.</li>
+        <li>
+          Click <b>Create</b> to make a new app. Enter app name, redirect URL:
+          "{{ brokerConnectRedirectUrl }}" and description, then click
+          <b>Create</b>.
+        </li>
+        <li>
+          Copy the <b>API Key</b> and <b>API Secret</b> and paste them into the
+          AlphaQuarkTest platform to connect your broker.
+        </li>
+      </ol>
+    </div>
+
+    <!-- Embedded YouTube Video -->
+    <div class="video-container">
+      <h5>Watch the Video Tutorial</h5>
+      <iframe
+        class="rounded-md border-[2px] border-gray-700"
+        width="100%"
+        height="315px"
+        src="https://www.youtube.com/embed/blhTiePBIg0"
+        title="YouTube video tutorial"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+  </div>
+</div>

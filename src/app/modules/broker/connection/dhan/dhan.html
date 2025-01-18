@@ -1,0 +1,75 @@
+<div class="flex gap-4 w-full">
+  <div class="flex flex-col gap-8 border-[1px] rounded-md p-8 w-7/12">
+    <h4>Broker Configuration</h4>
+
+    <form class="flex flex-col gap-4" [formGroup]="brokerConfig">
+      <p-inputgroup>
+        <p-inputgroup-addon> Client ID </p-inputgroup-addon>
+        <input pInputText formControlName="clientId" />
+      </p-inputgroup>
+      <p-inputgroup>
+        <p-inputgroup-addon> Access Token </p-inputgroup-addon>
+        <input pInputText formControlName="accessToken" />
+      </p-inputgroup>
+
+      <div class="flex flex-row-reverse gap-4">
+        <div class="w-1/6">
+          <p-button
+            fluid
+            label="Save & Connect"
+            [disabled]="brokerConfig.invalid"
+            (click)="save()"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="flex flex-col gap-8 border-[1px] rounded-md p-8 w-5/12">
+    <h4>Step-by-Step Guide</h4>
+
+    <div class="instructions font-poppins">
+      <h5>Steps to Obtain Client ID and Access Token for Dhan</h5>
+      <ol class="flex flex-col gap-2 pl-4 list-decimal">
+        <li>
+          Visit
+          <a href="https://login.dhan.co/?location=DH_WEB" target="_blank"
+            >Dhan Trading Portal</a
+          >
+          and log-in using the QR code option.
+        </li>
+        <li>
+          Click on your profile picture and choose "My Profile on Dhan". Under
+          the Profile details, you'll find the "Client ID".
+        </li>
+        <li>Then, select "Dhan HQ Trading APIs" from the menu.</li>
+        <li>
+          To generate an access token, click on "+ New Token," enter a name for
+          your app, set the validity to 30 days, and click "Generate Token."
+        </li>
+        <li>Copy the access token and paste it into the designated field.</li>
+      </ol>
+
+      <div class="mt-5" style="--p-message-text-font-weight: 400">
+        <p-message severity="warn"
+          >Note: Open this in desktop view; unavailable in app.</p-message
+        >
+      </div>
+    </div>
+
+    <!-- Embedded YouTube Video -->
+    <div class="video-container">
+      <h5>Watch the Video Tutorial</h5>
+      <iframe
+        class="rounded-md border-[2px] border-gray-700"
+        width="100%"
+        height="315px"
+        src="https://www.youtube.com/embed/MhAfqNQKSrQ"
+        title="YouTube video tutorial"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+  </div>
+</div>

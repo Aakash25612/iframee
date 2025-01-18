@@ -1,0 +1,31 @@
+<div class="aq-broker-dashboard-container">
+  <h2>Broker Dashboard</h2>
+
+  <div class="aq-broker-funds">
+    <p-card header="Available Cash">
+      {{ funds?.availablecash ?? 0 | currency:'INR' }}
+    </p-card>
+
+    <p-card header="Available Limit Margin">
+      {{ funds?.availablelimitmargin ?? 0 | currency:'INR' }}
+    </p-card>
+  </div>
+
+  <div class="aq-broker-holdings">
+    <p-card header="Total Holdings">
+      {{ netHoldings?.totalholdingvalue ?? 0 | currency:'INR' }}
+    </p-card>
+
+    <p-card header="Total Invested">
+      {{ netHoldings?.totalinvvalue ?? 0 | currency:'INR' }}
+    </p-card>
+
+    <p-card header="Total P&L Percentage">
+      {{ netHoldings?.totalpnlpercentage ?? 0 | number:'1.2-2' }}
+    </p-card>
+
+    <p-card header="Total P&L">
+      {{ netHoldings?.totalprofitandloss ?? 0 | currency:'INR' }}
+    </p-card>
+  </div>
+</div>

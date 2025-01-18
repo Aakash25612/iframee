@@ -1,0 +1,11 @@
+<div class="page-layout-container">
+  <div class="page-content">
+    <ng-content select="[content]"></ng-content>
+  </div>
+
+  @if (options.showFooter) {
+    <div class="page-footer text-sm">
+      Powered by AlphaQuark
+    </div>
+  }
+</div>

@@ -1,0 +1,93 @@
+<div class="flex gap-4 w-full">
+  <div class="flex flex-col gap-8 border-[1px] rounded-md p-8 w-7/12">
+    <h4>Broker Configuration</h4>
+
+    <form class="flex flex-col gap-4" [formGroup]="brokerConfig">
+      <p-inputgroup>
+        <p-inputgroup-addon> API Key </p-inputgroup-addon>
+        <input pInputText formControlName="apiKey" />
+      </p-inputgroup>
+      <p-inputgroup>
+        <p-inputgroup-addon> API Secret </p-inputgroup-addon>
+        <input pInputText formControlName="apiSecret" />
+      </p-inputgroup>
+
+      <div class="flex flex-row-reverse gap-4">
+        <div class="w-1/6">
+          <p-button
+            fluid
+            label="Save & Connect"
+            [disabled]="brokerConfig.invalid"
+            (click)="save()"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="flex flex-col gap-8 border-[1px] rounded-md p-8 w-5/12">
+    <h4>Step-by-Step Guide</h4>
+
+    <div class="instructions font-poppins">
+      <h5>Steps to Obtain API Key and API Secret for Upstox</h5>
+      <ol class="flex flex-col gap-2 pl-4 list-decimal">
+        <li>
+          Visit the
+          <a href="https://shorturl.at/plWYJ" target="_blank">Upstox Portal</a>
+          and log in using your phone number.
+        </li>
+        <li>Verify your identity with the OTP and continue.</li>
+        <li>Enter your 6-digit PIN and continue.</li>
+        <li>
+          Click on the "New App" button. Fill in the "App Name" field with
+          "AlphaQuarkTest" or a name of your choice. Enter the "Redirect URL" as
+          "{{ brokerConnectRedirectUrl }}"
+
+          <div class="mt-2" style="--p-message-text-font-weight: 400">
+            <p-message severity="error"
+              >Important: Please ensure that the "Redirect URL" is entered
+              correctly as mentioned above.
+            </p-message>
+          </div>
+          <div class="mt-2" style="--p-message-text-font-weight: 400">
+            <p-message severity="warn"
+              >You can skip the Postback URL and Description as they are
+              optional.
+            </p-message>
+          </div>
+        </li>
+        <li>
+          Accept the Terms & Conditions and click on the "Continue" button.
+        </li>
+        <li>
+          Review the details and click on the "Confirm Plan" button. Your API is
+          now ready! Click on the "Done" button.
+          <div class="mt-2" style="--p-message-text-font-weight: 400">
+            <p-message severity="error"
+              >Important: Please ensure that you don't have more than 2 apps.
+            </p-message>
+          </div>
+        </li>
+        <li>
+          Click on the newly created app, copy your API and Secret Key, and
+          enter these details on the designated screen.
+        </li>
+      </ol>
+    </div>
+
+    <!-- Embedded YouTube Video -->
+    <div class="video-container">
+      <h5>Watch the Video Tutorial</h5>
+      <iframe
+        class="rounded-md border-[2px] border-gray-700"
+        width="100%"
+        height="315px"
+        src="https://www.youtube.com/embed/yfTXrjl0k3E"
+        title="YouTube video tutorial"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+  </div>
+</div>

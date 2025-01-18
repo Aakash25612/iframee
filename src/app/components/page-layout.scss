@@ -1,0 +1,17 @@
+@use '../commons/colors' as *;
+
+.page-layout-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  .page-content {
+    flex-grow: 1;
+  }
+
+  .page-footer {
+    border: 1px solid $grey-300;
+    color: rgba($grey-600, .70);
+    padding: 0.6rem 1rem;
+  }
+}

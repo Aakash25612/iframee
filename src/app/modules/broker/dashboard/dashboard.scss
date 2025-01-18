@@ -1,0 +1,30 @@
+.aq-broker-dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: var(--container-padding);
+
+  p-card {
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    font-size: 2rem;
+  }
+}
+
+.aq-broker-funds {
+  display: flex;
+  gap: 2rem;
+
+  p-card {
+    flex-grow: 1;
+  }
+}
+
+.aq-broker-holdings {
+  display: flex;
+  gap: 2rem;
+
+  p-card {
+    flex-grow: 1;
+  }
+}

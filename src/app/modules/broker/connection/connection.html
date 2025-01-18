@@ -1,0 +1,51 @@
+<div class="aq-broker-connection-container">
+  <h2>Connect Your Broker</h2>
+
+  <div class="aq-broker-connection-form mt-5">
+    <div class="w-1/6">
+      <p-listbox
+        [options]="brokers"
+        [ngModel]="selectedBroker"
+        optionLabel="name"
+        scrollHeight="100%"
+        (onChange)="onSelectedBrokerChange($event)"
+        striped
+      >
+        <ng-template let-broker #item>
+          <div class="flex items-center gap-2">
+            <img [src]="getBrokerImage(broker)" style="width: 18px" />
+            <div>{{ broker }}</div>
+          </div>
+        </ng-template>
+      </p-listbox>
+    </div>
+    <div class="grow">
+      @switch (selectedBroker) {
+        @case (Broker.ALICE_BLUE) {
+          <aq-broker-aliceblue />
+        }
+        @case (Broker.DHAN) {
+          <aq-broker-dhan />
+        }
+        @case (Broker.FYERS) {
+          <aq-broker-fyers />
+        }
+        @case (Broker.HDFC_SECURITIES) {
+          <aq-broker-hdfc />
+        }
+        @case (Broker.ICICI_DIRECT) {
+          <aq-broker-icici />
+        }
+        @case (Broker.IIFL_SECURITIES) {
+          <aq-broker-iifl />
+        }
+        @case (Broker.KOTAK) {
+          <aq-broker-kotak />
+        }
+        @case (Broker.UPSTOX) {
+          <aq-broker-upstox />
+        }
+      }
+    </div>
+  </div>
+</div>

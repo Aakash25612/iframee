@@ -1,0 +1,10 @@
+.aq-broker-connection-container {
+  display: flex;
+  flex-direction: column;
+  padding: var(--container-padding);
+
+  .aq-broker-connection-form {
+    display: flex;
+    gap: 1rem;
+  }
+}

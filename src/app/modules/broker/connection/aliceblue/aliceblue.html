@@ -1,0 +1,76 @@
+<div class="flex gap-4 w-full">
+  <div class="flex flex-col gap-8 border-[1px] rounded-md p-8 w-7/12">
+    <h4>Broker Configuration</h4>
+
+    <form class="flex flex-col gap-4" [formGroup]="brokerConfig">
+      <p-inputgroup>
+        <p-inputgroup-addon> User ID </p-inputgroup-addon>
+        <input pInputText formControlName="userId" />
+      </p-inputgroup>
+      <p-inputgroup>
+        <p-inputgroup-addon> API Key </p-inputgroup-addon>
+        <input pInputText formControlName="apiKey" />
+      </p-inputgroup>
+
+      <div class="flex flex-row-reverse gap-4">
+        <div class="w-1/6">
+          <p-button
+            fluid
+            label="Save & Connect"
+            [disabled]="brokerConfig.invalid"
+            (click)="save()"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="flex flex-col gap-8 border-[1px] rounded-md p-8 w-5/12">
+    <h4>Step-by-Step Guide</h4>
+
+    <div class="instructions font-poppins">
+      <h5>Steps to get the User ID and API Key for Alice Blue</h5>
+      <ol class="flex flex-col gap-2 pl-4 list-decimal">
+        <li>
+          Log in to
+          <a href="https://ant.aliceblueonline.com/apps" target="_blank"
+            >ANT Web Trading Platform</a
+          >
+          with your phone number, password, and TOTP or mobile OTP.
+        </li>
+        <li>If prompted with a Risk Disclosure pop-up, click "Proceed."</li>
+        <li>
+          In the "Apps" tab, select "API Key," click "Copy," and paste it on
+          your platform.
+        </li>
+        <li>
+          For your User ID, click the profile icon, go to "Your
+          Profile/Settings," and copy the client ID under your name. Paste it
+          onto your platform.
+        </li>
+      </ol>
+
+      <div class="mt-5" style="--p-message-text-font-weight: 400">
+        <p-message severity="warn"
+          >Note: This key is valid for 24 hours, so generate a new one
+          daily.</p-message
+        >
+      </div>
+    </div>
+
+    <!-- Embedded YouTube Video -->
+    <div class="video-container">
+      <h5>Watch the Video Tutorial</h5>
+      <iframe
+        class="rounded-md border-[2px] border-gray-700"
+        width="100%"
+        height="315px"
+        src="https://www.youtube.com/embed/YaONYqsiwGQ"
+        title="YouTube video tutorial"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<aq-page-layout [options]="pageOptions">
+  <div content>
+    @if (isBrokerConnected()) {
+    <aq-broker-dashboard />
+    } @else {
+    <aq-broker-connection />
+    }
+  </div>
+</aq-page-layout>
